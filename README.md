@@ -11,3 +11,7 @@
 [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=Kudrikudrii_frontend-project-11)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Kudrikudrii_frontend-project-11&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Kudrikudrii_frontend-project-11)
+
+### Link to the expanded project:
+
+https://frontend-project-11-nu-flax.vercel.app/
