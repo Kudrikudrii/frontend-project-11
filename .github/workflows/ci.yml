@@ -25,6 +25,8 @@ jobs:
       - run: make install
       - name: Run SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@master
+        with:
+          projectBaseDir: .
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
