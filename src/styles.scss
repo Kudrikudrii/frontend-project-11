@@ -1,1 +1,14 @@
-@import '~bootstrap/scss/bootstrap';
+.feeds-container,
+.posts-container {
+  display: none;
+}
+
+.list-group-item {
+  &.active {
+    font-weight: bold;
+  }
+}
+
+.feedback {
+  min-height: 24px;
+}
