@@ -1,1 +1,3 @@
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import '../styles/styles.scss';
+
+console.log('App initialized');

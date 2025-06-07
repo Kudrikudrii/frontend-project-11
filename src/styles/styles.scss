@@ -1,14 +1,14 @@
-.feeds-container,
-.posts-container {
-  display: none;
-}
+$primary: #ff5722;
+$enable-rounded: false;
 
-.list-group-item {
-  &.active {
-    font-weight: bold;
-  }
+@import 'bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Arial', sans-serif;
 }
 
 .feedback {
-  min-height: 24px;
+  &.text-success {
+    color: $success !important;
+  }
 }
