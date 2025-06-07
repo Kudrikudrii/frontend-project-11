@@ -6,6 +6,7 @@ export default [
   js.configs.recommended,
 
   {
+    ignores: ['**/node_modules/', '**/dist/'],
     languageOptions: {
       globals: {
         ...globals.node,
