@@ -23,6 +23,7 @@ export default [
       import: importPlugin,
     },
     rules: {
+      semi: 'off',
       '@stylistic/semi': 'off',
       'no-underscore-dangle': [
         'error',
