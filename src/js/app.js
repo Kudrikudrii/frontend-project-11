@@ -3,7 +3,7 @@ import 'bootstrap';
 import * as yup from 'yup';
 import onChange from 'on-change';
 import i18next from 'i18next';
-import uniqueId from 'lodash/uniqueId.js';
+import { uniqueId } from 'lodash';
 import ru from './ru.js';
 import parse from './parser.js';
 import fetchRSS from './allorigins.js';
