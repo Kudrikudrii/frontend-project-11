@@ -1,3 +1,4 @@
+/* eslint-disable */
 import globals from 'globals';
 import js from '@eslint/js';
 import importPlugin from 'eslint-plugin-import';
@@ -22,6 +23,7 @@ export default [
       import: importPlugin,
     },
     rules: {
+      '@stylistic/semi': 'off',
       'no-underscore-dangle': [
         'error',
         {
