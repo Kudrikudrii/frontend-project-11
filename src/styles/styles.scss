@@ -1,14 +1,1 @@
-$primary: #ff5722;
-$enable-rounded: false;
-
-@import 'bootstrap/scss/bootstrap';
-
-body {
-  font-family: 'Arial', sans-serif;
-}
-
-.feedback {
-  &.text-success {
-    color: $success !important;
-  }
-}
+@use 'bootstrap/scss/bootstrap';
