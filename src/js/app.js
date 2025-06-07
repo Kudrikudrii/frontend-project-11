@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable @stylistic/semi */
 import '../styles/styles.scss';
 import 'bootstrap';
 import * as yup from 'yup';

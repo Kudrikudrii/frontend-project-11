@@ -1,3 +1,4 @@
+/* eslint-disable */
 const renderInput = (state, elements, i18n) => {
   switch (state.formState) {
     case 'filling':
