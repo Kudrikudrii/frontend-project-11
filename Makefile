@@ -12,3 +12,6 @@ lint:
 
 build: # сборка в директорию dist
 		npm run build
+
+serve: # сборка в браузере без сохранения в директорию dist
+		npm run dev
