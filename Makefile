@@ -10,8 +10,8 @@ publish: #Установка publish
 lint:
 		npx eslint .
 
-# build: # сборка в директорию dist
-# 	npm run build
+build: # сборка в директорию dist
+		npm run build
 
 serve: # сборка в браузере без сохранения в директорию dist
-	npm run serve
+		npm run serve
