@@ -2,9 +2,14 @@ import '../styles/styles.scss';
 import 'bootstrap';
 import * as yup from 'yup';
 import onChange from 'on-change';
+import i18next from 'i18next';
+import uniqueId from 'lodash/uniqueId.js';
+import ru from './ru.js';
+import parse from './parser.js';
+import fetchRSS from './allorigins.js';
+import render from './view.js';
 
 const app = () => {
-  // Model (состояние)
   const state = {
     formState: 'filling', // valid, invalid, sending
     inputValue: '',
@@ -39,7 +44,6 @@ const app = () => {
     },
   });
 
-  // i18next
   const i18n = i18next.createInstance();
   i18n
     .init({
@@ -50,7 +54,6 @@ const app = () => {
       },
     })
     .then(() => {
-      // Обновление постов
       const updatePosts = (watchedState) => {
         const promises = watchedState.feeds.map((feed) =>
           fetchRSS(feed.link)
@@ -74,10 +77,8 @@ const app = () => {
         return Promise.all(promises).finally(() => setTimeout(updatePosts, 5000, watchedState));
       };
 
-      // View (представление)
       const watchedState = onChange(state, (path) => render(path, state, elements, i18n));
 
-      // Валидация
       const validateURL = (url, existingLinks) => {
         const schema = yup.string().required().url().notOneOf(existingLinks);
 
@@ -90,7 +91,6 @@ const app = () => {
           });
       };
 
-      // Contoller (события)
       elements.form.addEventListener('submit', (e) => {
         e.preventDefault();
         watchedState.formState = 'filling';
