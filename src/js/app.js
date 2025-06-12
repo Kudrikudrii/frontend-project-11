@@ -56,13 +56,13 @@ const app = () => {
     })
     .then(() => {
       const updatePosts = (watchedState) => {
-        const promises = watchedState.feeds.map((feed) =>
+        const promises = watchedState.feeds.map(feed =>
           fetchRSS(feed.link)
             .then((xml) => {
-              const addedPostLinks = watchedState.posts.map((post) => post.link);
+              const addedPostLinks = watchedState.posts.map(post => post.link);
               const { posts } = parse(xml, feed.link);
-              const newPosts = posts.filter((post) => !addedPostLinks.includes(post.link));
-              const postsWithId = newPosts.map((post) => ({
+              const newPosts = posts.filter(post => !addedPostLinks.includes(post.link));
+              const postsWithId = newPosts.map(post => ({
                 ...post,
                 id: uniqueId(),
                 feedId: feed.id,
@@ -73,12 +73,12 @@ const app = () => {
             .catch((error) => {
               console.error(`Ошибка при получении данных из ${feed.id}:`, error);
               return null;
-            })
+            }),
         );
         return Promise.all(promises).finally(() => setTimeout(updatePosts, 5000, watchedState));
       };
 
-      const watchedState = onChange(state, (path) => render(path, state, elements, i18n));
+      const watchedState = onChange(state, path => render(path, state, elements, i18n));
 
       const validateURL = (url, existingLinks) => {
         const schema = yup.string().required().url().notOneOf(existingLinks);
@@ -99,14 +99,15 @@ const app = () => {
         const url = formData.get('url');
         watchedState.inputValue = url;
 
-        const existingLinks = watchedState.feeds.map((feed) => feed.link);
+        const existingLinks = watchedState.feeds.map(feed => feed.link);
         validateURL(url, existingLinks)
           .then((error) => {
             if (error) {
               watchedState.error = error;
               watchedState.formState = 'invalid';
               throw new Error(error);
-            } else {
+            }
+            else {
               watchedState.error = null;
               return url;
             }
@@ -118,7 +119,7 @@ const app = () => {
                 const { feed, posts } = parse(xml);
                 const feedId = uniqueId();
                 watchedState.feeds.push({ ...feed, id: feedId, link: url });
-                const postsWithId = posts.map((post) => ({ ...post, id: uniqueId(), feedId }));
+                const postsWithId = posts.map(post => ({ ...post, id: uniqueId(), feedId }));
                 watchedState.posts.unshift(...postsWithId);
                 watchedState.formState = 'valid';
               })
